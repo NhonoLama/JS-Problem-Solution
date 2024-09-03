@@ -9,7 +9,6 @@
 // }
 // console.log(newStr("lastthe"));
 
-
 // //2.Write a JavaScript program to extract the first half of a string of even length.
 // const firstHalf = (str) => {
 //     if((str.length%2) === 0){
@@ -20,7 +19,6 @@
 // }
 // console.log(firstHalf("momo"));
 
-
 // //3.Write a JavaScript program to concatenate two strings except their first character.
 // const concate2 = (str1, str2) => {
 //     str1 = str1.slice(1);
@@ -29,7 +27,6 @@
 // }
 // console.log(concate2("hhey","yyou"));
 
-
 // //4.Given two values, write a JavaScript program to find out which one is nearest to 100
 // const near100 = (num1,num2)=>{
 //     const c1 = 100 - num1;
@@ -37,7 +34,6 @@
 //     return (c1<c2?num1:num2);
 // }
 // console.log(near100(90,99));
-
 
 // //5.Write a JavaScript program to check a given string contains 2 to 4 occurrences of a specified character.
 // const checkstr = (str,char) =>{
@@ -53,4 +49,36 @@
 
 // checkstr("dawalama","a");
 
+// longest substring without repeating chracters.
+const subStr = (str) => {
+  let newArr = [];
+  let highestLength = 0;
+  let longestsubStr;
 
+  [...str].forEach((ch) => {
+    if (!newArr.includes(ch)) {
+      newArr.push(ch);
+    } else {
+      if (highestLength < newArr.length) {
+        highestLength = newArr.length;
+        longestsubStr = newArr.join("");
+      }
+    }
+    newArr = [];
+  });
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (!newArr.includes(arr[i])) {
+  //     newArr.push(arr[i]);
+  //   } else {
+  //     if (highestLength < newArr.length) {
+  //       highestLength = newArr.length;
+  //       longestsubStr = newArr.join("");
+  //     }
+  //     newArr = [];
+  //   }
+  // }
+  return longestsubStr;
+};
+
+console.log(subStr("abcabcdaba"));
